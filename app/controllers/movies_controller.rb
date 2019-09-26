@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = Movie.all_ratings
-    @checkRatings = params[:ratings]
+    @checkRatings = params[:ratings] || {}
     if @checkRatings == {}
       @checkRatings = Hash[@all_ratings.map {|rating| [rating, rating]}] #map array to
     end
